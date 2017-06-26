@@ -1,0 +1,32 @@
+<h1>List of Questions</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Asked By</th>
+  </tr>
+ 
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.title %></td>
+      <td><%= question.askedby %></td>
+      <td><%= link_to 'Show', question_path(question) %></td>
+      <td><%= link_to 'Edit', edit_question_path(question) %></td>
+      <td><%= link_to 'Destroy', question_path(question),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to delete?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<br>
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %>
+<br>
+<%= link_to('View All Users', users_path)  %>

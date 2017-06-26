@@ -1,0 +1,14 @@
+<p>
+    <strong>Poster:</strong>
+    <%= answer.poster %>
+  </p>
+ 
+  <p>
+    <strong>Answer:</strong>
+    <%= answer.contents %>
+  </p>
+  <p>
+  <%= link_to 'Destroy Answer', [answer.question, answer],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

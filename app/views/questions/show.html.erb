@@ -1,0 +1,19 @@
+<p>
+  <strong>Title:</strong>
+  <%= @question.title %>
+</p>
+ 
+<p>
+  <strong>Contents:</strong>
+  <%= @question.contents %>
+</p>
+
+<h2>Add a Answer:</h2>
+
+<%= render 'answers/form' %>
+
+<h2>Answers to this Question</h2>
+
+<%= render @question.answers %>
+
+<%= link_to 'Back', questions_path %>

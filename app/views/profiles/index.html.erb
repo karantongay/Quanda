@@ -1,0 +1,31 @@
+<h1>My Profile</h1>
+
+No of Questions asked: <%= @question.count %>
+<br><br>
+My Questions
+<br>
+<% @question.each do |q| %>
+Title: <%= link_to q.title, question_path(q) %>
+<br>
+<% end %>
+<br>
+No of Questions Answered: <%= @answer.count %>
+<br><br>
+My Answers
+<br>
+<% @answer.each do |a| %>
+<% @ques = Question.find(a.question_id) %>
+Answered To: <%= link_to @ques.title, question_path(@ques) %>
+<br>
+<% end %>
+<br>
+My Email: <%= current_user.email %>
+<br><br>
+No of Followers: <%= current_user.followers_count %>
+<br><br>
+Followers:
+<br><br>
+<% @followers.each do |f| %>
+<%= f.email %>
+<br>
+<% end %>

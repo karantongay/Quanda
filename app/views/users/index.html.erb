@@ -1,0 +1,14 @@
+<h1>List of Users</h1>
+
+<% @users = User.all %>
+<% @users.each do |user| %>
+  <%= user.email %> <%= link_to "Follow", follow_user_path(user) %><br/>
+<% end %>
+
+
+
+<%= current_user.followers_count %>
+
+ <% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>

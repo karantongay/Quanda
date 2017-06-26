@@ -1,0 +1,11 @@
+--2017-06-26 15:30:04--  https://www.hipchat.com/keys/hipchat-linux.key
+Resolving www.hipchat.com (www.hipchat.com)... 52.202.225.145, 34.198.198.162, 52.207.133.9
+Connecting to www.hipchat.com (www.hipchat.com)|52.202.225.145|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1739 (1.7K) [application/octet-stream]
+Saving to: ‘hipchat-linux.key’
+
+     0K .                                                     100%  208M=0s
+
+2017-06-26 15:30:06 (208 MB/s) - ‘hipchat-linux.key’ saved [1739/1739]
+

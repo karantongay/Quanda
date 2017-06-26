@@ -1,0 +1,15 @@
+<%= form_for([@question, @question.answers.build]) do |f| %>
+  <p>
+    <%= f.label :poster %><br>
+    <%= f.text_field :poster, :value => current_user.email, :readonly => true %>
+    
+  </p>
+  <p>
+    <%= f.label :contents %><br>
+    <%= f.text_area :contents %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+  <%= f.hidden_field :answeredby, :value => current_user.email %>
+<% end %>
