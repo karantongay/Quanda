@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   if current_user
     if current_user == @user
       flash[:notice] = "You cannot follow yourself."
-      #redirect_to users_path
+      redirect_back(fallback_location: root_path)
     else
       current_user.follow(@user)
       #RecommenderMailer.new_follower(@user).deliver if @user.notify_new_follower
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   else
     flash[:error] = "You must <a href='/users/sign_in'>login</a> to follow #{@user.monniker}.".html_safe
   end
+  redirect_back(fallback_location: root_path)
 
 end
 
@@ -28,9 +29,10 @@ def unfollow
 
   if current_user
     current_user.stop_following(@user)
-    flash[:notice] = "You are no longer following #{@user.monniker}."
+    flash[:notice] = "You are no longer following #{@user.email}."
   else
-    flash[:error] = "You must <a href='/users/sign_in'>login</a> to unfollow #{@user.monniker}.".html_safe
+    flash[:error] = "You must <a href='/users/sign_in'>login</a> to unfollow #{@user.email}.".html_safe
   end
+  redirect_back(fallback_location: root_path)
 end
 end

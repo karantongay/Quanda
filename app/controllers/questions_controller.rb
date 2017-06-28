@@ -1,16 +1,21 @@
 class QuestionsController < ApplicationController
 	before_action :authenticate_user!
+	layout 'application'
 	def new
 		@question = Question.new
 	end
 	def edit
 		@question = Question.find(params[:id])
+		if @question.askedby != current_user.email
+			flash[:info] = "You cannot edit the question asked by other user!"
+			redirect_to(questions_path)
+		end
 	end
 	def index
 		@questions = Question.all
 	end
 	def show
-    	@question = Question.find(params[:id])
+    	@question = Question.find(params[:id])	
   	end
 	def create
 		@question = Question.new(question_params)
@@ -30,8 +35,13 @@ class QuestionsController < ApplicationController
 	end
 	def destroy
     	@question = Question.find(params[:id])
-    	@question.destroy
-	    redirect_to questions_path
+    	if @question.askedby != current_user.email
+			flash[:notice] = "You cannot delete the question asked by other user!"
+			redirect_to(questions_path)
+		else
+    		@question.destroy
+	    	redirect_to questions_path
+		end
   end
 	def question_params
 		params.require(:question).permit(:title, :contents, :askedby)

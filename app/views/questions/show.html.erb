@@ -1,19 +1,42 @@
+<style sheet="text/css">
+#editbtn a:link, #editbtn a:hover
+{
+	text-decoration-color: white;
+	text-decoration: none;
+	text-decoration-color: none;
+}
+</style>
+
 <p>
-  <strong>Title:</strong>
-  <%= @question.title %>
+  <h2 class="h2">Question: <%= @question.title %></h2>
+  <h6 class="h4">Asked By: <%= @question.askedby %></h6>
 </p>
- 
-<p>
-  <strong>Contents:</strong>
+<br>
+<div class="desc" style="background-color: lightblue; height:150px; border-radius:25px; padding: 25px;">
+<p class="p">
+  <strong>Description:</strong>
   <%= @question.contents %>
 </p>
 
-<h2>Add a Answer:</h2>
+<br>
+</div>
+<br>
+<div id = "editbtn">
+  <button class="btn btn-warning"><div id = "editbtn"><%= link_to 'Edit This Question',edit_question_path(@question) %></div></button>
+  
+  <button class="btn btn-danger"><font color="white"><%= link_to 'Delete', question_path(@question),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to delete?' } %></font></button>
+
+  </div>
+
+<h2 class="h2">Add an Answer to this Question:</h2>
 
 <%= render 'answers/form' %>
 
-<h2>Answers to this Question</h2>
+<h2 class="h2">Previous answers to this Question</h2>
+
 
 <%= render @question.answers %>
 
-<%= link_to 'Back', questions_path %>
+<div class="clearfix"> </div>

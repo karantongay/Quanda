@@ -1,18 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Komysql</title>
+
+    <style sheet="text/css">
+    body
+    {
+      background-image: url('intro-bg.jpg');
+    }
+      footer {
+   position:relative;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}
+.table-fixed{
+  width: 100%;
+  background-color: white;
+  tbody{
+    height:200px;
+    overflow-y:auto;
+    width: 100%;
+    }
+  thead,tbody,tr,td,th{
+    display:block;
+  }
+  tbody{
+    td{
+      float:left;
+    }
+  }
+  thead {
+    tr{
+      th{
+        float:left;
+       background-color: #f39c12;
+       border-color:#e67e22;
+      }
+    }
+  }
+}
+    </style>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>KyuOverflow</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="css/styles.css" rel="stylesheet">
+    <%= stylesheet_link_tag "styles" %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+<div class="navbar navbar-light navbar-fixed-top" style="background-color: #b3f2fd;">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">KyuOverflow</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav nav-tabs">
+        <li class="active nav-item"><a href="/questions">Question Feed</a></li>
+        <li><a href="/profiles" class="nav-item navbar-nav">My Profile</a></li>
+        <li><a href="/users" class="nav-item navbar-nav">View All Users</a></li>
+        <li><%= link_to('Log out', destroy_user_session_path, method: :delete) %></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
 
-    <p class="notice"><%= notice %></p>
+<div class="container">
+<% flash.each do |key, value| %>
+      <div class="<%= flash_class(:error) %>">
+            <%= value %>
+      </div>
+<% end %>
+<!--    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+  -->
+   <%= yield %>
+  
+</div><!-- /.container -->
+<div class="clearfix"> </div>
 
+
+  <!-- script references -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
