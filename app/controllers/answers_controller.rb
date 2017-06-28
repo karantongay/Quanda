@@ -1,14 +1,14 @@
 class AnswersController < ApplicationController
-def show
-end
-def create
+    def show
+    end
+    def create
 
-	@question = Question.find(params[:question_id])
-    @answer = @question.answers.create(answer_params)
-    redirect_to question_path(@question)
+       @question = Question.find(params[:question_id])
+       @answer = @question.answers.create(answer_params)
+       redirect_to question_path(@question)
 
-end
-def destroy
+   end
+   def destroy
     @question = Question.find(params[:question_id])
     @answer = @question.answers.find(params[:id])
     if @answer.answeredby != current_user.email
@@ -22,7 +22,7 @@ def destroy
 end
 
 private
-    def answer_params
-      params.require(:answer).permit(:poster, :contents, :answeredby)
-    end
+def answer_params
+  params.require(:answer).permit(:poster, :contents, :answeredby)
+end
 end

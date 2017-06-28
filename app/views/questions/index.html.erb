@@ -1,4 +1,36 @@
 <br>
+<%= form_tag(questions_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Questions (By Title)", :class => "form-control" %>
+<br>
+<%= submit_tag "Search", :class => "btn btn-success" %>
+<% end %>
+<% if @posts.present? %>
+<table class="table table-bordered table-hover">
+<tr>
+<th>Question Title</th>
+<th>Asked By</th>
+<th>View Question</th>
+</tr>
+<h1 class="h1">Search Results</h1>
+  <% @posts.each do |q| %>
+  <tr>
+  <td>
+  <%= q.title %>
+  </td>
+  <td>
+  <%= q.askedby %>
+  </td>
+  <td><button class="btn btn-success"><%= link_to 'View', question_path(q) %></button></td>
+  </tr>
+  <br>
+  <% end %>
+  </table>
+<% else %>
+  <% if @post == 1 %>
+  <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+  <% end %>
+<% end %>
+<br>
 <h1 class="h1">Question Feed</h1>
 <br>
 <table class="table table-bordered table-hover">
@@ -18,3 +50,4 @@
   <% end %>
 </table>
 <br>
+

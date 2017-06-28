@@ -16,16 +16,17 @@
  
   <p>
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :class => "form-control" %>
   </p>
- 
+ <br>
   <p>
-    <%= f.label :contents %><br>
-    <%= f.text_area :contents %>
+    <%= f.label :contents, "Description" %><br>
+    <%= f.text_area :contents, :class => "form-control" %>
   </p>
     <%= f.hidden_field :askedby, :value => current_user.email %>
+    <br>
   <p>
-    <%= f.submit %>
+    <%= f.submit "Submit Question", :class => "btn btn-success" %>
   </p>
  
 <% end %>

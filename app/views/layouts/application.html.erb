@@ -71,7 +71,8 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav nav-tabs">
-        <li class="active nav-item"><a href="/questions">Question Feed</a></li>
+        <li class="nav-item"><a href="/questions">Question Feed</a></li>
+        <li><a href="/questions/new" class="nav-item navbar-nav">Ask New Question</a></li>
         <li><a href="/profiles" class="nav-item navbar-nav">My Profile</a></li>
         <li><a href="/users" class="nav-item navbar-nav">View All Users</a></li>
         <li><%= link_to('Log out', destroy_user_session_path, method: :delete) %></li>
@@ -96,7 +97,7 @@
 
 
   <!-- script references -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

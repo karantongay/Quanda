@@ -24,6 +24,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </head>
 <body style="background: url(../../assets/1.jpg)repeat 0px 0px;"">
+<% flash.each do |key, value| %>
+      <div class="<%= flash_class(:error) %>">
+            <%= devise_error_messages! %>
+      </div>
+<% end %>
+
   <!-- main -->
   <%= yield %>
   <!-- //main -->
