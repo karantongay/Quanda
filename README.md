@@ -1,25 +1,34 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The project demo can be found on the following link:
 
-Things you may want to cover:
+https://cryptic-stream-87241.herokuapp.com/
 
-* Ruby version
 
-* System dependencies
+Following things you may require to get this project up and running:
 
-* Configuration
+* Ruby version : > 2.4
 
-* Database creation
+* Rails version: 5.1
 
-* Database initialization
+* Database : MySQL
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # Quanda
+
+"Quanda" is a simple Q & A portal developed using Ruby on Rails.
+
+It features all the basic functionalities that are required for a Question and Answer Portal.
+
+Following is the list of key features it supports:
+
+1. Ability to users to ask questions.
+
+2. Answering the questions.
+
+3. Following and Unfollowing other users.
+
+4. User Profiles.
+
+5. Deleting questions and answers with validation i.e. only the owner of the question or answer can perform delete operation.
+
+6. Editing the questions with validation i.e. only the owner of the question and answer can perform edit operation.
