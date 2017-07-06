@@ -1,6 +1,6 @@
 <%= render "formlayout", layout: "formlayout" %>
 <div class="main-agileits">
-<h1>KyuOverflow Sign up</h1>
+<h1>Quanda Sign up</h1>
 <div class="mainw3-agileinfo">
  <!-- login form -->
       <div class="login-form">  
@@ -13,7 +13,7 @@
             <% if @minimum_password_length %>
             <p>(<%= @minimum_password_length %> characters minimum)</p>
             <% end %>
-            <%= f.text_field :password, autocomplete: "off" %>
+            <%= f.password_field :password, autocomplete: "off" %>
             <p><%= f.label :password_confirmation %></p>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
 
