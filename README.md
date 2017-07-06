@@ -31,6 +31,6 @@ Following is the list of key features it supports:
 
 5. Deleting questions and answers with validation i.e. only the owner of the question or answer can perform delete operation.
 
-6. Editing the questions with validation i.e. only the owner of the question and answer can perform edit operation.
+6. Editing the questions with validation i.e. only the owner of the question can perform edit operation.
 
 Please feel free to fork or clone and contribute to the project.
