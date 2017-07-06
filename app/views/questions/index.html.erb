@@ -5,13 +5,13 @@
 <%= submit_tag "Search", :class => "btn btn-success" %>
 <% end %>
 <% if @posts.present? %>
+<h1 class="h1">Search Results</h1>
 <table class="table table-bordered table-hover">
 <tr>
 <th>Question Title</th>
 <th>Asked By</th>
 <th>View Question</th>
 </tr>
-<h1 class="h1">Search Results</h1>
   <% @posts.each do |q| %>
   <tr>
   <td>
@@ -22,7 +22,6 @@
   </td>
   <td><button class="btn btn-success"><%= link_to 'View', question_path(q) %></button></td>
   </tr>
-  <br>
   <% end %>
   </table>
 <% else %>
@@ -44,10 +43,10 @@
     <tr>
       <td><%= question.title %></td>
       <td><%= question.askedby %></td>
-      <td><button class="btn btn-success"><%= link_to 'View', question_path(question) %></button></td>
+      
+      <td><a class="btn btn-success" href= <%= question_path(question) %> >View</a></td>
       
     </tr>
   <% end %>
 </table>
 <br>
-

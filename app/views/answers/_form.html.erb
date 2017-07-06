@@ -11,7 +11,7 @@
   </p>
   <br>
   <p>
-    <%= f.submit "Submit Answer", :class => "btn btn-success" %>
+    <%= f.submit "Submit Answer", :class => "btn btn-success", :id => "submit" %>
   </p>
   <%= f.hidden_field :answeredby, :value => current_user.email %>
 <% end %>

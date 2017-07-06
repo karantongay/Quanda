@@ -22,11 +22,9 @@
 </div>
 <br>
 <div id = "editbtn">
-  <button class="btn btn-warning"><div id = "editbtn"><%= link_to 'Edit This Question',edit_question_path(@question) %></div></button>
-  
-  <button class="btn btn-danger"><font color="white"><%= link_to 'Delete', question_path(@question),
-              method: :delete,
-              data: { confirm: 'Are you sure you want to delete?' } %></font></button>
+<a class="btn btn-warning" id="edit_question" href=<%= edit_question_path(@question) %> rel="nofollow">Edit This Question</a>
+
+<a class="btn btn-danger" id="delete_question" data-confirm="Are you sure?" data-method="delete" href=<%= question_path(@question) %> rel="nofollow">Delete</a>
 
   </div>
 

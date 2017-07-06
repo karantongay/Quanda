@@ -1,7 +1,8 @@
 class Question < ApplicationRecord
 	has_many :answers, dependent: :destroy
-	validates :title, presence: true,
+	validates :title, :contents, presence: true,
                     length: { minimum: 5 }
+    #validates :askedby, presence: true
 
  	def self.search(search)
  	 where("title LIKE ?", "%#{search}%") 

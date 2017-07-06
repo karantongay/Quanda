@@ -49,7 +49,7 @@ class QuestionsController < ApplicationController
     		@question.destroy
 	    	redirect_to questions_path
 		end
-  end
+  	end
 	def question_params
 		params.require(:question).permit(:title, :contents, :askedby)
 	end
